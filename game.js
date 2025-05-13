@@ -22,8 +22,8 @@ var touchDown = false, touchX = 0;
 
 var carMass = 3000;
 var carAngularInertia = 10000;
-var wheelAttach = [[-1.6, -.6], [1.95, -.6]];
-var colPoints = [[2.7, -.2], [2.7, .4], [.4, 1.1], [-2.7, .6], [-2.6, -.15]];
+var wheelAttach = [[-1.55, -.7], [1.9, -.7]];
+var colPoints = [[2.7, -.2], [2.5, .5], [.4, 1.5], [-2.4, 1.5], [-2.6, -.2]];
 var springConstant = 100000;
 var dampConstant = 10000;
 var maxDrive = 30000;
@@ -252,12 +252,12 @@ function handleInput(dt) {
         else gas = 0;
     }
 
-    if (keySpace) {
-        pullForce[0] = 0;
-        pullForce[1] = 50000;
-    } else {
-        zero(pullForce);
-    }
+    // if (keySpace) {
+    //     pullForce[0] = 0;
+    //     pullForce[1] = 50000;
+    // } else {
+    //     zero(pullForce);
+    // }
 }
 
 function updateCar(dt) {
@@ -610,7 +610,7 @@ function drawCar() {
     ctx.save();
     ctx.translate(factor * -offset + (factor * carX[0]), height - (factor * carX[1]));
     ctx.rotate(carR);
-    ctx.drawImage(carpic, -100, -40);
+    ctx.drawImage(carpic, -100, -56);
 
     for (i = 0; i < wheelAttach.length; i++) {
         ctx.save();
